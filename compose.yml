@@ -1,0 +1,13 @@
+services:
+  dbserver:
+    image: docker.io/library/postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_USER=admin
+      - POSTGRES_DB=transportcolis
+
+  dbclient:
+    image: docker.io/library/postgres
+    command: psql -h dbserver -U admin --dbname transportcolis
