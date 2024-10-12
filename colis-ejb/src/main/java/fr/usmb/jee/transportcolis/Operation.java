@@ -1,5 +1,6 @@
 package fr.usmb.jee.transportcolis;
 
+import jakarta.ejb.Remote;
 import jakarta.ws.rs.FormParam;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
@@ -11,6 +12,7 @@ import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 
 @Path("colis")
+@Remote
 public interface Operation {
     @POST
     @Produces(MediaType.APPLICATION_JSON)

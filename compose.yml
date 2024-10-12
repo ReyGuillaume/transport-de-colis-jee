@@ -10,4 +10,8 @@ services:
 
   dbclient:
     image: docker.io/library/postgres
-    command: psql -h dbserver -U admin --dbname transportcolis
+    command: >
+      sh -c "until psql -h dbserver -U admin -c 'SELECT 1'; do echo waiting for dbserver; sleep 2; done;
+      psql -h dbserver -U admin --dbname=transportcolis"
+    depends_on:
+      - dbserver

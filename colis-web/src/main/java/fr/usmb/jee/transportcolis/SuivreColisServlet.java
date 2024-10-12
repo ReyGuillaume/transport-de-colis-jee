@@ -19,8 +19,8 @@ public class SuivreColisServlet extends HttpServlet {
         String id = req.getParameter("id");
 
         Colis colis = ejb.getColis(id);
-        req.setAttribute("colis", colis);
 
+        req.setAttribute("colis", colis);
         req.getRequestDispatcher("/SuivreColisServlet.jsp").forward(req, resp);
     }
 }
