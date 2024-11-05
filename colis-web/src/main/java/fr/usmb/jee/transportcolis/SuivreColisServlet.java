@@ -9,18 +9,20 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet("/suivreColis/{id}")
+@WebServlet("/suivreColis/*")
 public class SuivreColisServlet extends HttpServlet {
     @EJB
     private Operation ejb;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String id = req.getParameter("id");
+        String pathInfo = req.getPathInfo();
+        String[] pathParts = pathInfo.split("/");
+        String id = pathParts[1];
 
         Colis colis = ejb.getColis(id);
 
         req.setAttribute("colis", colis);
-        req.getRequestDispatcher("/SuivreColisServlet.jsp").forward(req, resp);
+        req.getRequestDispatcher("/SuivreColis.jsp").forward(req, resp);
     }
 }

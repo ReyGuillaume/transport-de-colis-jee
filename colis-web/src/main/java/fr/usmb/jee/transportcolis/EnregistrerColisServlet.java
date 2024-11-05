@@ -16,6 +16,7 @@ public class EnregistrerColisServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.setAttribute("colis", req.getAttribute("colis"));
         req.getRequestDispatcher("/EnregistrerColis.jsp").forward(req, resp);
     }
 

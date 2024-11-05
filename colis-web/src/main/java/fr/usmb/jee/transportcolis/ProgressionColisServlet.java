@@ -9,24 +9,29 @@ import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
 
-@WebServlet("/progressionColis/{id}")
+@WebServlet("/progressionColis/*")
 public class ProgressionColisServlet extends HttpServlet {
     @EJB
     private Operation ejb;
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String id = req.getParameter("id");
+        String pathInfo = req.getPathInfo();
+        String[] pathParts = pathInfo.split("/");
+        String id = pathParts[1];
 
         Colis colis = ejb.getColis(id);
 
         req.setAttribute("colis", colis);
-        req.getRequestDispatcher("/ProgressionColisServlet.jsp").forward(req, resp);
+        req.getRequestDispatcher("/ProgressionColis.jsp").forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String id = req.getParameter("id");
+        String pathInfo = req.getPathInfo();
+        String[] pathParts = pathInfo.split("/");
+        String id = pathParts[1];
+
         String latitude = req.getParameter("latitude");
         String longitude = req.getParameter("longitude");
         String emplacement = req.getParameter("emplacement");

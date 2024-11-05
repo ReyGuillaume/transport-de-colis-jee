@@ -7,13 +7,11 @@
 <body>
 <h1>Modifier la progression d'un colis</h1>
 
-<jsp:useBean id="success" scope="request" type="java.lang.Boolean"/>
 <c:if test='${success}'>
     <p>Le colis a bien été modifié !</p>
 </c:if>
 
-<jsp:useBean id="colis" scope="request" type="fr.usmb.jee.transportcolis.Colis"/>
-<form action="progressionColis/${colis.identifiant}" method="POST">
+<form action="${pageContext.request.contextPath}/progressionColis/${colis.identifiant}" method="POST">
     <div>
         <label for="latitude">Latitude :</label>
         <input type="text" id="latitude" name="latitude" value="${colis.latitude}" required>

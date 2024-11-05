@@ -7,7 +7,6 @@
 <body>
     <h1>Suivre un colis</h1>
 
-    <jsp:useBean id="colis" scope="request" type="fr.usmb.jee.transportcolis.Colis"/>
     <c:if test="${colis != null}">
         <p>Identifiant : ${colis.identifiant}</p>
         <p>Poids : ${colis.poids}</p>

@@ -15,7 +15,6 @@ import jakarta.persistence.PersistenceContext;
         databaseName = "transportcolis"
 )
 
-
 @Stateless
 @Remote
 public class OperationBean implements Operation {

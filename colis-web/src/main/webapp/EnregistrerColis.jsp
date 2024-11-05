@@ -7,12 +7,11 @@
 <body>
 <h1>Enregistrer un colis</h1>
 
-<jsp:useBean id="colis" scope="request" type="fr.usmb.jee.transportcolis.Colis"/>
 <c:if test='${colis != null}'>
     <p>Le colis <strong>${colis.identifiant}</strong> a bien été créé !</p>
 </c:if>
 
-<form action="enregistrerColis" method="post">
+<form action="${pageContext.request.contextPath}/enregistrerColis" method="post">
     <div>
         <label for="identifiant">Identifiant :</label>
         <input type="text" id="identifiant" name="identifiant" required>
