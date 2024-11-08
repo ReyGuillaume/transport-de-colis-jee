@@ -14,6 +14,10 @@ Ainsi, on peut traîter la soumission du formulaire dans la même servlet.
 
 ## Utilisation
 
+1. `mvn install`
+2. `mvn package`
+3. Puis déployer l'artifact `colis.ear:exploded` sur votre serveur.
+
 Se rendre sur `http://localhost:8080/colis-web/enregistrerColis` pour enregistrer un colis.
 Se rendre sur `http://localhost:8080/colis-web/progressionColis/{projectId}` pour mettre à jour la progression du colis.
 Se rendre sur `http://localhost:8080/colis-web/suivreColis/{projectId}` pour suivre un colis et visualiser ses informations.
